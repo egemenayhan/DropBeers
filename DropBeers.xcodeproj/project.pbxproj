@@ -28,6 +28,8 @@
 		7BA2400725040C7A00D72A41 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2400625040C7A00D72A41 /* BaseViewController.swift */; };
 		7BA2400925040CA200D72A41 /* Instantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2400825040CA200D72A41 /* Instantiatable.swift */; };
 		7BA2400B25040E7000D72A41 /* BeerList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BA2400A25040E7000D72A41 /* BeerList.storyboard */; };
+		7BA2400F2504276800D72A41 /* BeerCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2400E2504276800D72A41 /* BeerCalculator.swift */; };
+		7BA24011250427A600D72A41 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA24010250427A600D72A41 /* Beer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,8 @@
 		7BA2400625040C7A00D72A41 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7BA2400825040CA200D72A41 /* Instantiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instantiatable.swift; sourceTree = "<group>"; };
 		7BA2400A25040E7000D72A41 /* BeerList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BeerList.storyboard; sourceTree = "<group>"; };
+		7BA2400E2504276800D72A41 /* BeerCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerCalculator.swift; sourceTree = "<group>"; };
+		7BA24010250427A600D72A41 /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +187,7 @@
 		7BA23FDA2504033900D72A41 /* Network Models */ = {
 			isa = PBXGroup;
 			children = (
+				7BA24010250427A600D72A41 /* Beer.swift */,
 			);
 			path = "Network Models";
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 				7BA23FFE2504075E00D72A41 /* GlobalVariables.swift */,
 				7BA2400625040C7A00D72A41 /* BaseViewController.swift */,
 				7BA2400825040CA200D72A41 /* Instantiatable.swift */,
+				7BA2400E2504276800D72A41 /* BeerCalculator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -386,6 +392,7 @@
 				7BA2400725040C7A00D72A41 /* BaseViewController.swift in Sources */,
 				7BA2400325040AEE00D72A41 /* BeerListViewController.swift in Sources */,
 				7BA2400525040AFB00D72A41 /* BeerListViewModel.swift in Sources */,
+				7BA24011250427A600D72A41 /* Beer.swift in Sources */,
 				7BA23FF12504033900D72A41 /* BaseURL.swift in Sources */,
 				7BA23FF42504033900D72A41 /* Endpoint.swift in Sources */,
 				7BA23FF02504033900D72A41 /* NetworkingError.swift in Sources */,
@@ -394,6 +401,7 @@
 				7BA23FFF2504075E00D72A41 /* GlobalVariables.swift in Sources */,
 				7BA23FF52504033900D72A41 /* NetworkManager.swift in Sources */,
 				7BA23FF32504033900D72A41 /* API.swift in Sources */,
+				7BA2400F2504276800D72A41 /* BeerCalculator.swift in Sources */,
 				7B9C345B2502DD920059D314 /* SceneDelegate.swift in Sources */,
 				7BA2400925040CA200D72A41 /* Instantiatable.swift in Sources */,
 				7BA23FF72504039200D72A41 /* PunkAPIEndpoint.swift in Sources */,

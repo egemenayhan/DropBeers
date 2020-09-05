@@ -9,9 +9,13 @@ import  Foundation
 
 struct BeerListState {
 
+    var beers: [Beer] = []
+
     enum Change {
         case loading
         case loaded
+        case beersUpdated
+        case error(message: String)
     }
 
 }
@@ -35,18 +39,30 @@ class BeerListViewModel {
     }
 
     func fetchCustomerInput() {
+        stateChangeHandler?(.loading)
         NetworkManager.shared.downloadFile(from: Constants.inputPath) { [weak self] (fileURL, error) in
-            guard let self = self, let fileURL = fileURL else { return }
-            self.readFile(at: fileURL)
+            self?.stateChangeHandler?(.loaded)
+            guard let strongSelf = self, let fileURL = fileURL else {
+                self?.stateChangeHandler?(.error(message: error?.localizedDescription ?? "undefined"))
+                return
+            }
+            strongSelf.calculateBeers(at: fileURL)
         }
     }
 
-    func readFile(at fileURL: URL) {
-        do {
-            let content = try String(contentsOfFile: fileURL.path, encoding: .utf8)
-            print(content)
-        } catch {
-            print("\(error.localizedDescription)")
+    private func calculateBeers(at fileURL: URL) {
+        var beerCalculator = BeerCalculator(with: fileURL)
+        switch beerCalculator.calculate() {
+        case .success(let beers):
+            state.beers = beers
+            // TODO: fetch beer list
+        case .failure(let error):
+            switch error {
+            case .noSolution:
+                stateChangeHandler?(.error(message: "No solution exist!"))
+            case .fileError:
+                stateChangeHandler?(.error(message: "Could`t read file!"))
+            }
         }
     }
 

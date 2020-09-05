@@ -56,7 +56,6 @@ final class NetworkManager {
 
     @discardableResult func downloadFile(from path: String, completion: ((URL?, NetworkingError?)->Void)?) -> DownloadRequest {
         let destination = DownloadRequest.suggestedDownloadDestination(for: .documentDirectory, in: .userDomainMask, options: [.removePreviousFile])
-        
         return session.download(
             path,
             method: .get,
