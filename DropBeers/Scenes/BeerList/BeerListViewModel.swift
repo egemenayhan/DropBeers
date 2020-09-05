@@ -9,13 +9,23 @@ import  Foundation
 
 struct BeerListState {
 
-    var beers: [Beer] = []
+    private(set) var beers: [Beer] = []
+    var brewResults: BeerCalculator.BeerBrewResult?
 
     enum Change {
         case loading
         case loaded
         case beersUpdated
         case error(message: String)
+    }
+
+    mutating func updateBeers(with beers: [Beer]) {
+        self.beers = beers
+        self.beers.indices.forEach { (index) in
+            if let brew = brewResults?[beers[index].id] {
+                self.beers[index].brew = brew
+            }
+        }
     }
 
 }
@@ -53,15 +63,32 @@ class BeerListViewModel {
     private func calculateBeers(at fileURL: URL) {
         var beerCalculator = BeerCalculator(with: fileURL)
         switch beerCalculator.calculate() {
-        case .success(let beers):
-            state.beers = beers
-            // TODO: fetch beer list
+        case .success(let results):
+            state.brewResults = results
+            fetchBeers()
         case .failure(let error):
             switch error {
             case .noSolution:
                 stateChangeHandler?(.error(message: "No solution exist!"))
             case .fileError:
                 stateChangeHandler?(.error(message: "Could`t read file!"))
+            }
+        }
+    }
+
+    private func fetchBeers() {
+        guard let results = state.brewResults else { return }
+        stateChangeHandler?(.loading)
+        let request = BeerListRequest(results: results)
+        NetworkManager.shared.execute(request: request) { [weak self] (response) in
+            self?.stateChangeHandler?(.loaded)
+            guard let strongSelf = self else { return }
+            switch response.result {
+            case .success(let beers):
+                strongSelf.state.updateBeers(with: beers)
+                strongSelf.stateChangeHandler?(.beersUpdated)
+            case .failure:
+                strongSelf.stateChangeHandler?(.error(message: "Couldn`t fetch beers!"))
             }
         }
     }
