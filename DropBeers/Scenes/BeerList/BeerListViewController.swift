@@ -24,7 +24,7 @@ struct BeerListPresentation {
 
 }
 
-class BeerListViewController: BaseViewController {
+class BeerListViewController: BaseViewController, BeerDetailRoutable {
 
     private enum Constants {
         static let tableViewHeight: CGFloat = 80.0
@@ -112,5 +112,9 @@ extension BeerListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension BeerListViewController: UITableViewDelegate {
-    // TODO: handle selection
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        routeToBeerDetail(from: self, beer: viewModel.state.beers[indexPath.row])
+    }
+
 }
