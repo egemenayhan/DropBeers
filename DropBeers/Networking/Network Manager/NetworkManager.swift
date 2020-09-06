@@ -55,7 +55,7 @@ final class NetworkManager {
     }
 
     @discardableResult func downloadFile(from path: String, completion: ((URL?, NetworkingError?)->Void)?) -> DownloadRequest {
-        let destination = DownloadRequest.suggestedDownloadDestination(for: .documentDirectory)
+        let destination = DownloadRequest.suggestedDownloadDestination(for: .documentDirectory, in: .userDomainMask, options: [.removePreviousFile])
         return session.download(
             path,
             method: .get,
@@ -63,11 +63,13 @@ final class NetworkManager {
             encoding: JSONEncoding.default,
             headers: nil,
             to: destination).response(completionHandler: { (response) in
-                guard let fileURL = response.fileURL else {
+                switch response.result {
+                case .success(let fileURL):
+                    completion?(fileURL, nil)
+                case .failure(let error):
+                    print(error.localizedDescription)
                     completion?(nil, NetworkingError.undefined)
-                    return
                 }
-                completion?(fileURL, nil)
             }
         )
     }
