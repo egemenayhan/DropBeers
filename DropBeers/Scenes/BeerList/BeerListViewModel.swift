@@ -13,7 +13,7 @@ struct BeerListState {
     var brewResults: BeerCalculator.BeerBrewResult?
 
     enum Change {
-        case loading
+        case loading(title: String? = nil)
         case loaded
         case beersUpdated
         case error(message: String)
@@ -49,7 +49,7 @@ class BeerListViewModel {
     }
 
     func fetchCustomerInput() {
-        stateChangeHandler?(.loading)
+        stateChangeHandler?(.loading(title: "downloading input..."))
         NetworkManager.shared.downloadFile(from: Constants.inputPath) { [weak self] (fileURL, error) in
             self?.stateChangeHandler?(.loaded)
             guard let strongSelf = self, let fileURL = fileURL else {
@@ -78,7 +78,7 @@ class BeerListViewModel {
 
     private func fetchBeers() {
         guard let results = state.brewResults else { return }
-        stateChangeHandler?(.loading)
+        stateChangeHandler?(.loading(title: "getting beers..."))
         let request = BeerListRequest(results: results)
         NetworkManager.shared.execute(request: request) { [weak self] (response) in
             self?.stateChangeHandler?(.loaded)

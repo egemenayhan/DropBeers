@@ -28,12 +28,15 @@ class BeerListViewController: BaseViewController {
 
     private enum Constants {
         static let tableViewHeight: CGFloat = 80.0
+        static let loadingCornerRadius: CGFloat = 10.0
     }
 
     private var viewModel = BeerListViewModel(state: BeerListState())
     private var presentation = BeerListPresentation()
 
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var loadingView: UIView!
+    @IBOutlet private weak var loadingTitleLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +44,7 @@ class BeerListViewController: BaseViewController {
         title = "DROP BEERS"
         configureViewModel()
         configureTableView()
+        configureViews()
         viewModel.fetchCustomerInput()
     }
 
@@ -49,11 +53,20 @@ class BeerListViewController: BaseViewController {
         viewModel.addChangeHandler { [weak self] (change) in
             guard let strongSelf = self else { return }
             switch change {
+            case .loading(let title):
+                strongSelf.loadingView.isHidden = false
+                strongSelf.loadingTitleLabel.text = title ?? ""
+            case .loaded:
+                strongSelf.loadingView.isHidden = true
             case .beersUpdated:
                 strongSelf.presentation.update(with: strongSelf.viewModel.state.beers)
                 strongSelf.tableView.reloadData()
-            default:
-                break
+            case .error(let message):
+                let alertController = UIAlertController(title: "Oops!", message: message, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (_) in
+                    strongSelf.dismiss(animated: true, completion: nil)
+                }))
+                strongSelf.present(alertController, animated: true, completion: nil)
             }
         }
     }
@@ -67,6 +80,11 @@ class BeerListViewController: BaseViewController {
             forCellReuseIdentifier: BeerTableViewCell.reuseIdentifier
         )
         tableView.tableFooterView = UIView(frame: .zero)
+    }
+
+    private func configureViews() {
+        loadingView.layer.cornerRadius = Constants.loadingCornerRadius
+        loadingView.layer.masksToBounds = true
     }
 
 }
