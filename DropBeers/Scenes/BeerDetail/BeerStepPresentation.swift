@@ -75,4 +75,12 @@ struct BeerStepPresentation {
         steps[key] = stepPresentations
     }
 
+    mutating func updateStepToDone(at indexPath: IndexPath) {
+        if var presentations = presentations(for: indexPath.section) {
+            presentations[indexPath.row].isIdle = false
+            let key = Array(steps.keys)[indexPath.section]
+            steps[key] = presentations
+        }
+    }
+
 }

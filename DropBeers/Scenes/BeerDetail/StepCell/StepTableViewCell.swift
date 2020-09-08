@@ -12,6 +12,7 @@ struct StepCellPresentation {
     let amount: Unit?
     let add: String?
     let attribute: String?
+    var isIdle: Bool = true
 }
 
 class StepTableViewCell: UITableViewCell, NibLoadable {
@@ -22,6 +23,9 @@ class StepTableViewCell: UITableViewCell, NibLoadable {
     @IBOutlet private weak var addLabel: UILabel!
     @IBOutlet private weak var attributeLabel: UILabel!
     @IBOutlet private weak var additionalInfoStackView: UIStackView!
+    @IBOutlet private weak var stepDoneButton: UIButton!
+
+    var stepDoneHandler: ((IndexPath) -> Void)?
 
     var presentation: StepCellPresentation? {
         didSet {
@@ -37,6 +41,13 @@ class StepTableViewCell: UITableViewCell, NibLoadable {
         super.awakeFromNib()
 
         nameLabel.minimumScaleFactor = 0.6
+
+        stepDoneButton.setTitle("IDLE", for: .normal)
+        stepDoneButton.setTitle("DONE", for: .selected)
+        stepDoneButton.setTitleColor(.white, for: .normal)
+        stepDoneButton.tintColor = .clear
+        stepDoneButton.layer.cornerRadius = 8.0
+        stepDoneButton.clipsToBounds = true
     }
 
     private func updateUI() {
@@ -58,6 +69,16 @@ class StepTableViewCell: UITableViewCell, NibLoadable {
         attributeLabel.text = presentation.attribute
         attributeLabel.isHidden = presentation.attribute == nil
         additionalInfoStackView.isHidden = attributeLabel.isHidden && addStackview.isHidden
+
+        stepDoneButton.isSelected = !presentation.isIdle
+        stepDoneButton.backgroundColor = presentation.isIdle ? .systemBlue : .systemGreen
+    }
+
+    @IBAction private func stepDoneTapped(_ sender: Any) {
+        guard !stepDoneButton.isSelected,
+            let tableView = superview as? UITableView,
+            let indexPath = tableView.indexPath(for: self) else { return }
+        stepDoneHandler?(indexPath)
     }
 
 }

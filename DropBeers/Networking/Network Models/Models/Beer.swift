@@ -42,7 +42,7 @@ struct Beer: Codable {
     }
 
     enum CodingKeys: String, CodingKey {
-        case id, abv, name, description, ingredients, malt, hops, method, mash_temp, fermantation
+        case id, abv, name, description, ingredients, malt, hops, method, mash_temp, fermentation
         case imagePath = "image_url"
     }
 
@@ -64,7 +64,7 @@ struct Beer: Codable {
             let method = Method(title: "Mesh Temp", infos: temps)
             self.methods?.append(method)
         }
-        if let fermantation = try? methodsContainer?.decode(MethodInfo.self, forKey: .fermantation) {
+        if let fermantation = try? methodsContainer?.decode(MethodInfo.self, forKey: .fermentation) {
             let method = Method(title: "Fermantation", infos: [fermantation])
             self.methods?.append(method)
         }

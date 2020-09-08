@@ -25,7 +25,8 @@ class BeerDetailViewController: BaseViewController {
             configureViewModel()
         }
     }
-    var stepPresentation = BeerStepPresentation()
+    private var stepPresentation = BeerStepPresentation()
+    private var cellTapHandler: ((IndexPath) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,16 @@ class BeerDetailViewController: BaseViewController {
         title = "Beer Details"
         updateUI()
         configureTableView()
+        configureCellTapHandler()
         viewModel?.fetchDetails()
+    }
+
+    private func configureCellTapHandler() {
+        cellTapHandler = { [weak self] (indexPath) in
+            guard let strongSelf = self else { return }
+            strongSelf.stepPresentation.updateStepToDone(at: indexPath)
+            strongSelf.tableView.reloadData()
+        }
     }
 
     private func configureTableView() {
@@ -44,6 +54,7 @@ class BeerDetailViewController: BaseViewController {
             forCellReuseIdentifier: StepTableViewCell.reuseIdentifier
         )
         tableView.tableFooterView = UIView(frame: .zero)
+        tableView.allowsSelection = false
     }
 
     private func configureViewModel() {
@@ -92,6 +103,7 @@ extension BeerDetailViewController: UITableViewDataSource {
             ) as? StepTableViewCell else { return UITableViewCell() }
         let presentation = stepPresentation.presentations(for: indexPath.section)?[indexPath.row]
         cell.presentation = presentation
+        cell.stepDoneHandler = cellTapHandler
         return cell
     }
 
