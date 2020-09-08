@@ -42,6 +42,9 @@ struct BeerStepPresentation {
         if let hops = beer.hops {
             map(ingredients: hops, toType: .hop)
         }
+        if let methods = beer.methods {
+            map(methods: methods, toType: .method)
+        }
     }
 
     private mutating func map(ingredients: [Ingredient], toType key: StepType) {
@@ -53,6 +56,24 @@ struct BeerStepPresentation {
                 attribute: $0.attribute
             )
         }
+    }
+
+    private mutating func map(methods: [Method], toType key: StepType) {
+        var stepPresentations: [StepCellPresentation] = []
+        methods.forEach { (method) in
+            let title = method.title
+            let presentations = method.infos.map { (info) -> StepCellPresentation in
+                let duration = info.duration == nil ? nil : String(format: "%.0f", info.duration ?? 0)
+                return StepCellPresentation(
+                    name: title,
+                    amount: info.temp,
+                    add: nil,
+                    attribute: duration
+                )
+            }
+            stepPresentations.append(contentsOf: presentations)
+        }
+        steps[key] = stepPresentations
     }
 
 }

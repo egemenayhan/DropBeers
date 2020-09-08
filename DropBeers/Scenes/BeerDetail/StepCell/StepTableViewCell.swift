@@ -9,7 +9,7 @@ import UIKit
 
 struct StepCellPresentation {
     let name: String?
-    let amount: Amount?
+    let amount: Unit?
     let add: String?
     let attribute: String?
 }
@@ -17,7 +17,6 @@ struct StepCellPresentation {
 class StepTableViewCell: UITableViewCell, NibLoadable {
 
     @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var amountStackView: UIStackView!
     @IBOutlet private weak var amountLabel: UILabel!
     @IBOutlet private weak var addStackview: UIStackView!
     @IBOutlet private weak var addLabel: UILabel!
@@ -34,15 +33,21 @@ class StepTableViewCell: UITableViewCell, NibLoadable {
         return String(describing: self)
     }
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        nameLabel.minimumScaleFactor = 0.6
+    }
+
     private func updateUI() {
         guard let presentation = presentation else { return }
 
         nameLabel.text = presentation.name
         if let amount = presentation.amount {
             amountLabel.text = "\(amount.value) \(amount.unit)"
-            amountStackView.isHidden = false
+            amountLabel.isHidden = false
         } else {
-            amountStackView.isHidden = true
+            amountLabel.isHidden = true
         }
         if let add = presentation.add {
             addLabel.text = add
