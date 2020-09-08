@@ -38,6 +38,7 @@
 		7BA2400F2504276800D72A41 /* BeerCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2400E2504276800D72A41 /* BeerCalculator.swift */; };
 		7BA24011250427A600D72A41 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA24010250427A600D72A41 /* Beer.swift */; };
 		7BA240142504331A00D72A41 /* BeerListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA240132504331A00D72A41 /* BeerListRequest.swift */; };
+		7BA3C2D925081143001A58D0 /* BeerStepPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA3C2D825081143001A58D0 /* BeerStepPresentation.swift */; };
 		7BCB062E2505532D004A37D2 /* BeerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB062D2505532D004A37D2 /* BeerTableViewCell.swift */; };
 		7BCB06302505533F004A37D2 /* BeerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BCB062F2505533F004A37D2 /* BeerTableViewCell.xib */; };
 		7BCB063225055B61004A37D2 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCB063125055B61004A37D2 /* AlamofireImage.framework */; };
@@ -113,6 +114,7 @@
 		7BA2400E2504276800D72A41 /* BeerCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerCalculator.swift; sourceTree = "<group>"; };
 		7BA24010250427A600D72A41 /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		7BA240132504331A00D72A41 /* BeerListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListRequest.swift; sourceTree = "<group>"; };
+		7BA3C2D825081143001A58D0 /* BeerStepPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerStepPresentation.swift; sourceTree = "<group>"; };
 		7BCB062D2505532D004A37D2 /* BeerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerTableViewCell.swift; sourceTree = "<group>"; };
 		7BCB062F2505533F004A37D2 /* BeerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeerTableViewCell.xib; sourceTree = "<group>"; };
 		7BCB063125055B61004A37D2 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				7B5AC7FE2505620500CD2A9C /* BeerDetailViewController.swift */,
 				7B5AC8002505636500CD2A9C /* BeerDetailViewModel.swift */,
 				7B5AC8022505673300CD2A9C /* BeerDetailRouter.swift */,
+				7BA3C2D825081143001A58D0 /* BeerStepPresentation.swift */,
 			);
 			path = BeerDetail;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				7BA23FF42504033900D72A41 /* Endpoint.swift in Sources */,
 				7BA23FF02504033900D72A41 /* NetworkingError.swift in Sources */,
 				7B5AC8012505636500CD2A9C /* BeerDetailViewModel.swift in Sources */,
+				7BA3C2D925081143001A58D0 /* BeerStepPresentation.swift in Sources */,
 				7B9C34592502DD920059D314 /* AppDelegate.swift in Sources */,
 				7BA23FF22504033900D72A41 /* Response.swift in Sources */,
 				7B5AC80625056B1500CD2A9C /* BeerDetailRequest.swift in Sources */,
