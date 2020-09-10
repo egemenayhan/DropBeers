@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B3E59B725097D6400796CDA /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3E59B625097D6400796CDA /* BaseTableViewCell.swift */; };
+		7B3E59B725097D6400796CDA /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3E59B625097D6400796CDA /* Reusable.swift */; };
 		7B3E59B92509F67000796CDA /* BeerDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3E59B82509F67000796CDA /* BeerDataProvider.swift */; };
 		7B3E59C0250A6ABD00796CDA /* BeerDataProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3E59BF250A6ABD00796CDA /* BeerDataProviding.swift */; };
 		7B3E59C2250A742500796CDA /* MockBeerDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3E59C1250A742500796CDA /* MockBeerDataProvider.swift */; };
@@ -87,7 +87,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7B3E59B625097D6400796CDA /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		7B3E59B625097D6400796CDA /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		7B3E59B82509F67000796CDA /* BeerDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDataProvider.swift; sourceTree = "<group>"; };
 		7B3E59BF250A6ABD00796CDA /* BeerDataProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDataProviding.swift; sourceTree = "<group>"; };
 		7B3E59C1250A742500796CDA /* MockBeerDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBeerDataProvider.swift; sourceTree = "<group>"; };
@@ -327,7 +327,7 @@
 				7BA23FFE2504075E00D72A41 /* GlobalVariables.swift */,
 				7BA2400825040CA200D72A41 /* Instantiatable.swift */,
 				7BA2400E2504276800D72A41 /* BeerCalculator.swift */,
-				7B3E59B625097D6400796CDA /* BaseTableViewCell.swift */,
+				7B3E59B625097D6400796CDA /* Reusable.swift */,
 				7B3E59BF250A6ABD00796CDA /* BeerDataProviding.swift */,
 				7BA340DE250A9F55000A55EA /* UIAlertController+Extensions.swift */,
 			);
@@ -520,7 +520,7 @@
 				7BA240142504331A00D72A41 /* BeerListRequest.swift in Sources */,
 				7B5AC80A25057BD400CD2A9C /* StepTableViewCell.swift in Sources */,
 				7BCB062E2505532D004A37D2 /* BeerTableViewCell.swift in Sources */,
-				7B3E59B725097D6400796CDA /* BaseTableViewCell.swift in Sources */,
+				7B3E59B725097D6400796CDA /* Reusable.swift in Sources */,
 				7BA2400325040AEE00D72A41 /* BeerListViewController.swift in Sources */,
 				7BA2400525040AFB00D72A41 /* BeerListViewModel.swift in Sources */,
 				7BA24011250427A600D72A41 /* Beer.swift in Sources */,

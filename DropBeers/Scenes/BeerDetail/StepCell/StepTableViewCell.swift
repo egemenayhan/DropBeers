@@ -15,7 +15,7 @@ struct StepCellPresentation {
     var isIdle: Bool = true
 }
 
-class StepTableViewCell: BaseTableViewCell {
+class StepTableViewCell: UITableViewCell, NibLoadable {
 
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var amountLabel: UILabel!
