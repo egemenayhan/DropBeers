@@ -61,14 +61,17 @@ class BeerDetailViewController: BaseViewController {
         viewModel?.addChangeHandler(handler: { [weak self] (change) in
             guard let strongSelf = self else { return }
             switch change {
+            case .loaded, .loading:
+                // handle loading state if needed
+                break
             case .beerDetailFetched:
                 if let beer = strongSelf.viewModel?.state.beer {
                     strongSelf.stepPresentation.update(with: beer)
                     strongSelf.tableView.reloadData()
                 }
                 strongSelf.updateUI()
-            default:
-                break
+            case .error(let message):
+                strongSelf.showAlert(title: "Oops!", message: message)
             }
         })
     }

@@ -31,7 +31,7 @@ class BeerListViewController: BaseViewController, BeerDetailRoutable {
         static let loadingCornerRadius: CGFloat = 10.0
     }
 
-    private var viewModel = BeerListViewModel(state: BeerListState())
+    private var viewModel = BeerListViewModel(state: BeerListState(), provider: BeerDataProvider())
     private var presentation = BeerListPresentation()
 
     @IBOutlet private weak var tableView: UITableView!
@@ -45,11 +45,10 @@ class BeerListViewController: BaseViewController, BeerDetailRoutable {
         configureViewModel()
         configureTableView()
         configureViews()
-        viewModel.fetchCustomerInput()
+        viewModel.fetchRequiredBeers()
     }
 
     private func configureViewModel() {
-        // TODO: handle state changes
         viewModel.addChangeHandler { [weak self] (change) in
             guard let strongSelf = self else { return }
             switch change {
@@ -62,11 +61,7 @@ class BeerListViewController: BaseViewController, BeerDetailRoutable {
                 strongSelf.presentation.update(with: strongSelf.viewModel.state.beers)
                 strongSelf.tableView.reloadData()
             case .error(let message):
-                let alertController = UIAlertController(title: "Oops!", message: message, preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (_) in
-                    strongSelf.dismiss(animated: true, completion: nil)
-                }))
-                strongSelf.present(alertController, animated: true, completion: nil)
+                strongSelf.showAlert(title: "Oops!", message: message)
             }
         }
     }

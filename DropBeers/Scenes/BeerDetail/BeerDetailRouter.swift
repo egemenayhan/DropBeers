@@ -15,7 +15,10 @@ extension BeerDetailRoutable {
 
     func routeToBeerDetail(from context: BaseViewController, beer: Beer) {
         let detailVC = BeerDetailViewController.instantiate()
-        detailVC.viewModel = BeerDetailViewModel(state: BeerDetailState(beer: beer))
+        detailVC.viewModel = BeerDetailViewModel(
+            state: BeerDetailState(beer: beer),
+            provider: BeerDataProvider()
+        )
         context.navigationController?.pushViewController(detailVC, animated: true)
     }
 

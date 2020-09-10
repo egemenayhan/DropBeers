@@ -39,29 +39,33 @@ class BeerListViewModel {
     typealias StateChangehandler = ((BeerListState.Change) -> Void)
     private var stateChangeHandler: StateChangehandler?
     private(set) var state: BeerListState
+    private(set) var beerDataProvider: BeerDataProviding
 
-    init(state: BeerListState) {
+    init(state: BeerListState, provider: BeerDataProviding) {
         self.state = state
+        self.beerDataProvider = provider
     }
 
     func addChangeHandler(handler: StateChangehandler?) {
         stateChangeHandler = handler
     }
 
-    func fetchCustomerInput() {
+    func fetchRequiredBeers() {
         stateChangeHandler?(.loading(title: "downloading input..."))
-        NetworkManager.shared.downloadFile(from: Constants.inputPath) { [weak self] (fileURL, error) in
+        beerDataProvider.fetchCustomerInput(from: Constants.inputPath) { [weak self] (result) in
             self?.stateChangeHandler?(.loaded)
-            guard let strongSelf = self, let fileURL = fileURL else {
-                self?.stateChangeHandler?(.error(message: error?.localizedDescription ?? "undefined"))
-                return
+            guard let strongSelf = self else { return }
+            switch result {
+            case .success(let url):
+                strongSelf.calculateBeers(at: url)
+            case .failure(_):
+                strongSelf.stateChangeHandler?(.error(message: "Can not download customer input!"))
             }
-            strongSelf.calculateBeers(at: fileURL)
         }
     }
 
     private func calculateBeers(at fileURL: URL) {
-        var beerCalculator = BeerCalculator(with: fileURL)
+        let beerCalculator = BeerCalculator(with: fileURL)
         switch beerCalculator.calculate() {
         case .success(let results):
             state.brewResults = results
@@ -79,15 +83,14 @@ class BeerListViewModel {
     private func fetchBeers() {
         guard let results = state.brewResults else { return }
         stateChangeHandler?(.loading(title: "getting beers..."))
-        let request = BeerListRequest(results: results)
-        NetworkManager.shared.execute(request: request) { [weak self] (response) in
+        beerDataProvider.fetchBeers(brewResult: results) { [weak self] (result) in
             self?.stateChangeHandler?(.loaded)
             guard let strongSelf = self else { return }
-            switch response.result {
+            switch result {
             case .success(let beers):
                 strongSelf.state.updateBeers(with: beers)
                 strongSelf.stateChangeHandler?(.beersUpdated)
-            case .failure:
+            case .failure(_):
                 strongSelf.stateChangeHandler?(.error(message: "Couldn`t fetch beers!"))
             }
         }

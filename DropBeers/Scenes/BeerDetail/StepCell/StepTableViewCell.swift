@@ -15,7 +15,7 @@ struct StepCellPresentation {
     var isIdle: Bool = true
 }
 
-class StepTableViewCell: UITableViewCell, NibLoadable {
+class StepTableViewCell: BaseTableViewCell {
 
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var amountLabel: UILabel!
@@ -31,10 +31,6 @@ class StepTableViewCell: UITableViewCell, NibLoadable {
         didSet {
             updateUI()
         }
-    }
-
-    static var reuseIdentifier: String {
-        return String(describing: self)
     }
 
     override func awakeFromNib() {

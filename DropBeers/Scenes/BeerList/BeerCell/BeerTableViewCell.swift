@@ -15,16 +15,12 @@ struct BeerCellPresentation {
     let brewType: BrewType
 }
 
-class BeerTableViewCell: UITableViewCell, NibLoadable {
+class BeerTableViewCell: BaseTableViewCell {
 
     @IBOutlet private weak var beerImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var abvLabel: UILabel!
     @IBOutlet private weak var brewLabel: UILabel!
-
-    static var reuseIdentifier: String {
-        return String(describing: self)
-    }
 
     var presentation: BeerCellPresentation? {
         didSet {

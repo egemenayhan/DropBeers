@@ -54,7 +54,7 @@ final class NetworkManager {
         return dataRequest.task
     }
 
-    @discardableResult func downloadFile(from path: String, completion: ((URL?, NetworkingError?)->Void)?) -> DownloadRequest {
+    @discardableResult func downloadFile(from path: String, completion: ((Result<URL, NetworkingError>)->Void)?) -> DownloadRequest {
         let destination = DownloadRequest.suggestedDownloadDestination(for: .documentDirectory, in: .userDomainMask, options: [.removePreviousFile])
         return session.download(
             path,
@@ -63,13 +63,18 @@ final class NetworkManager {
             encoding: JSONEncoding.default,
             headers: nil,
             to: destination).response(completionHandler: { (response) in
+                let result: Result<URL, NetworkingError>
                 switch response.result {
                 case .success(let fileURL):
-                    completion?(fileURL, nil)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                    completion?(nil, NetworkingError.undefined)
+                    if let url = fileURL {
+                        result = .success(url)
+                    } else {
+                        result = .failure(.undefined)
+                    }
+                case .failure(_):
+                    result = .failure(.undefined)
                 }
+                completion?(result)
             }
         )
     }
