@@ -32,6 +32,12 @@ class BeerTableViewCell: UITableViewCell, NibLoadable {
         }
     }
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        selectionStyle = .none
+    }
+
     override func prepareForReuse() {
         super.prepareForReuse()
 
