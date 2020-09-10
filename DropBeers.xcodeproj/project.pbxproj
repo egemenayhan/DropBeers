@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B3E59B725097D6400796CDA /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3E59B625097D6400796CDA /* BaseTableViewCell.swift */; };
+		7B3E59B92509F67000796CDA /* BeerDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3E59B82509F67000796CDA /* BeerDataProvider.swift */; };
+		7B3E59C0250A6ABD00796CDA /* BeerDataProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3E59BF250A6ABD00796CDA /* BeerDataProviding.swift */; };
 		7B5AC7FD250561F900CD2A9C /* BeerDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AC7FC250561F900CD2A9C /* BeerDetailViewController.storyboard */; };
 		7B5AC7FF2505620500CD2A9C /* BeerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AC7FE2505620500CD2A9C /* BeerDetailViewController.swift */; };
 		7B5AC8012505636500CD2A9C /* BeerDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AC8002505636500CD2A9C /* BeerDetailViewModel.swift */; };
@@ -78,6 +81,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7B3E59B625097D6400796CDA /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		7B3E59B82509F67000796CDA /* BeerDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDataProvider.swift; sourceTree = "<group>"; };
+		7B3E59BF250A6ABD00796CDA /* BeerDataProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDataProviding.swift; sourceTree = "<group>"; };
 		7B5AC7FC250561F900CD2A9C /* BeerDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BeerDetailViewController.storyboard; sourceTree = "<group>"; };
 		7B5AC7FE2505620500CD2A9C /* BeerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailViewController.swift; sourceTree = "<group>"; };
 		7B5AC8002505636500CD2A9C /* BeerDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailViewModel.swift; sourceTree = "<group>"; };
@@ -296,6 +302,8 @@
 				7BA2400625040C7A00D72A41 /* BaseViewController.swift */,
 				7BA2400825040CA200D72A41 /* Instantiatable.swift */,
 				7BA2400E2504276800D72A41 /* BeerCalculator.swift */,
+				7B3E59B625097D6400796CDA /* BaseTableViewCell.swift */,
+				7B3E59BF250A6ABD00796CDA /* BeerDataProviding.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -316,6 +324,7 @@
 				7BA2400A25040E7000D72A41 /* BeerList.storyboard */,
 				7BA2400225040AEE00D72A41 /* BeerListViewController.swift */,
 				7BA2400425040AFB00D72A41 /* BeerListViewModel.swift */,
+				7B3E59B82509F67000796CDA /* BeerDataProvider.swift */,
 			);
 			path = BeerList;
 			sourceTree = "<group>";
@@ -482,6 +491,7 @@
 				7BA240142504331A00D72A41 /* BeerListRequest.swift in Sources */,
 				7B5AC80A25057BD400CD2A9C /* StepTableViewCell.swift in Sources */,
 				7BCB062E2505532D004A37D2 /* BeerTableViewCell.swift in Sources */,
+				7B3E59B725097D6400796CDA /* BaseTableViewCell.swift in Sources */,
 				7BA2400725040C7A00D72A41 /* BaseViewController.swift in Sources */,
 				7BA2400325040AEE00D72A41 /* BeerListViewController.swift in Sources */,
 				7BA2400525040AFB00D72A41 /* BeerListViewModel.swift in Sources */,
@@ -490,6 +500,8 @@
 				7BA23FF42504033900D72A41 /* Endpoint.swift in Sources */,
 				7BA23FF02504033900D72A41 /* NetworkingError.swift in Sources */,
 				7B5AC8012505636500CD2A9C /* BeerDetailViewModel.swift in Sources */,
+				7B3E59C0250A6ABD00796CDA /* BeerDataProviding.swift in Sources */,
+				7B3E59B92509F67000796CDA /* BeerDataProvider.swift in Sources */,
 				7BA3C2D925081143001A58D0 /* BeerStepPresentation.swift in Sources */,
 				7B9C34592502DD920059D314 /* AppDelegate.swift in Sources */,
 				7BA23FF22504033900D72A41 /* Response.swift in Sources */,

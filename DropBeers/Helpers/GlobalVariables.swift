@@ -13,6 +13,6 @@ enum Environment {
 struct Global {
 
     // TODO: update according to build configuration
-    private(set) static var environment: Environment = .prod
+    private(set) static var environment: Environment = .beta
 
 }

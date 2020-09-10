@@ -15,4 +15,12 @@ class BaseViewController: UIViewController, Instantiatable {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak self] (_) in
+            self?.dismiss(animated: true, completion: nil)
+        }))
+        present(alertController, animated: true, completion: nil)
+    }
+
 }
