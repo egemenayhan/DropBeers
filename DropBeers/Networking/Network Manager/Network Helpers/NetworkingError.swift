@@ -2,8 +2,8 @@
 //  NetworkingError.swift
 //  DropBeers
 //
-//  Created by Egemen Ayhan on 14.05.2020.
-//  Copyright © 2020 Egemen Ayhan. All rights reserved.
+//  Created by Apple Seed on 14.05.2020.
+//  Copyright © 2020 Apple Seed. All rights reserved.
 //
 
 /// Error type to be used in Networking module

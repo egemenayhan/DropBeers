@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  DropBeers
 //
-//  Created by Egemen Ayhan on 4.09.2020.
+//  Created by Apple Seed on 4.09.2020.
 //
 
 import UIKit

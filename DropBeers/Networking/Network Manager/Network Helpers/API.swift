@@ -2,8 +2,8 @@
 //  API.swift
 //  DropBeers
 //
-//  Created by Egemen Ayhan on 14.05.2020.
-//  Copyright © 2020 Egemen Ayhan. All rights reserved.
+//  Created by Apple Seed on 14.05.2020.
+//  Copyright © 2020 Apple Seed. All rights reserved.
 //
 
 /// Represents an environment to connect to
