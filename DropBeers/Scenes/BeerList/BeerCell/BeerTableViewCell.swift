@@ -2,7 +2,7 @@
 //  BeerTableViewCell.swift
 //  DropBeers
 //
-//  Created by Egemen Ayhan on 6.09.2020.
+//  Created by Apple Seed on 6.09.2020.
 //
 
 import UIKit
@@ -15,7 +15,7 @@ struct BeerCellPresentation {
     let brewType: BrewType
 }
 
-class BeerTableViewCell: BaseTableViewCell {
+class BeerTableViewCell: UITableViewCell, NibLoadable {
 
     @IBOutlet private weak var beerImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!

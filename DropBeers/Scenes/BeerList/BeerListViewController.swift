@@ -2,7 +2,7 @@
 //  BeerListViewController.swift
 //  DropBeers
 //
-//  Created by Egemen Ayhan on 5.09.2020.
+//  Created by Apple Seed on 5.09.2020.
 //
 
 import UIKit
@@ -24,7 +24,7 @@ struct BeerListPresentation {
 
 }
 
-class BeerListViewController: BaseViewController, BeerDetailRoutable {
+class BeerListViewController: UIViewController, Instantiatable, BeerDetailRoutable {
 
     private enum Constants {
         static let tableViewHeight: CGFloat = 80.0
@@ -42,6 +42,7 @@ class BeerListViewController: BaseViewController, BeerDetailRoutable {
         super.viewDidLoad()
 
         title = "DROP BEERS"
+        navigationController?.navigationBar.prefersLargeTitles = true
         configureViewModel()
         configureTableView()
         configureViews()
@@ -61,7 +62,7 @@ class BeerListViewController: BaseViewController, BeerDetailRoutable {
                 strongSelf.presentation.update(with: strongSelf.viewModel.state.beers)
                 strongSelf.tableView.reloadData()
             case .error(let message):
-                strongSelf.showAlert(title: "Oops!", message: message)
+                UIAlertController.show(in: strongSelf, title: "Oops!", message: message)
             }
         }
     }

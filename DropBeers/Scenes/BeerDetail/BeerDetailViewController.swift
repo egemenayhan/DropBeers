@@ -2,13 +2,13 @@
 //  BeerDetailViewController.swift
 //  DropBeers
 //
-//  Created by Egemen Ayhan on 6.09.2020.
+//  Created by Apple Seed on 6.09.2020.
 //
 
 import UIKit
 import AlamofireImage
 
-class BeerDetailViewController: BaseViewController {
+class BeerDetailViewController: UIViewController, Instantiatable {
 
     private enum Constants {
         static let rowHeight: CGFloat = 60.0
@@ -32,6 +32,7 @@ class BeerDetailViewController: BaseViewController {
         super.viewDidLoad()
 
         title = "Beer Details"
+        navigationController?.navigationBar.prefersLargeTitles = true
         updateUI()
         configureTableView()
         configureCellTapHandler()
@@ -71,7 +72,7 @@ class BeerDetailViewController: BaseViewController {
                 }
                 strongSelf.updateUI()
             case .error(let message):
-                strongSelf.showAlert(title: "Oops!", message: message)
+                UIAlertController.show(in: strongSelf, title: "Oops!", message: message)
             }
         })
     }

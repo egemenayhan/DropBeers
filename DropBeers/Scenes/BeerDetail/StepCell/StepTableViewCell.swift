@@ -2,7 +2,7 @@
 //  StepTableViewCell.swift
 //  DropBeers
 //
-//  Created by Egemen Ayhan on 6.09.2020.
+//  Created by Apple Seed on 6.09.2020.
 //
 
 import UIKit
@@ -15,7 +15,7 @@ struct StepCellPresentation {
     var isIdle: Bool = true
 }
 
-class StepTableViewCell: BaseTableViewCell {
+class StepTableViewCell: UITableViewCell, NibLoadable {
 
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var amountLabel: UILabel!

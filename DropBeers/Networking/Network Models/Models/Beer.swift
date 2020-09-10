@@ -2,7 +2,7 @@
 //  Beer.swift
 //  DropBeers
 //
-//  Created by Egemen Ayhan on 5.09.2020.
+//  Created by Apple Seed on 5.09.2020.
 //
 
 import Foundation
