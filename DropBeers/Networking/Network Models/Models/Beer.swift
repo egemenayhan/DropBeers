@@ -97,3 +97,9 @@ struct MethodInfo: Codable {
     var temp: Unit?
     var duration: Double?
 }
+
+extension Beer: Equatable {
+    static func ==(lhs: Beer, rhs: Beer) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
