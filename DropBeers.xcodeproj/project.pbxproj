@@ -28,7 +28,6 @@
 		7B9C345B2502DD920059D314 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C345A2502DD920059D314 /* SceneDelegate.swift */; };
 		7B9C34622502DD930059D314 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B9C34612502DD930059D314 /* Assets.xcassets */; };
 		7B9C34652502DD930059D314 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B9C34632502DD930059D314 /* LaunchScreen.storyboard */; };
-		7B9C347B2502DD930059D314 /* DropBeersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C347A2502DD930059D314 /* DropBeersUITests.swift */; };
 		7BA23FF02504033900D72A41 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA23FE52504033900D72A41 /* NetworkingError.swift */; };
 		7BA23FF12504033900D72A41 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA23FE62504033900D72A41 /* BaseURL.swift */; };
 		7BA23FF22504033900D72A41 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA23FE72504033900D72A41 /* Response.swift */; };
@@ -56,13 +55,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		7B9C346C2502DD930059D314 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7B9C344D2502DD920059D314 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7B9C34542502DD920059D314;
-			remoteInfo = DropBeers;
-		};
-		7B9C34772502DD930059D314 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7B9C344D2502DD920059D314 /* Project object */;
 			proxyType = 1;
@@ -112,9 +104,6 @@
 		7B9C34662502DD930059D314 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B9C346B2502DD930059D314 /* DropBeersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DropBeersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B9C34712502DD930059D314 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7B9C34762502DD930059D314 /* DropBeersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DropBeersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B9C347A2502DD930059D314 /* DropBeersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropBeersUITests.swift; sourceTree = "<group>"; };
-		7B9C347C2502DD930059D314 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BA23FE52504033900D72A41 /* NetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		7BA23FE62504033900D72A41 /* BaseURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		7BA23FE72504033900D72A41 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
@@ -149,13 +138,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		7B9C34682502DD930059D314 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7B9C34732502DD930059D314 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -210,7 +192,6 @@
 			children = (
 				7B9C34572502DD920059D314 /* DropBeers */,
 				7B9C346E2502DD930059D314 /* DropBeersTests */,
-				7B9C34792502DD930059D314 /* DropBeersUITests */,
 				7B9C34562502DD920059D314 /* Products */,
 				7BA23FF8250405EE00D72A41 /* Frameworks */,
 			);
@@ -221,7 +202,6 @@
 			children = (
 				7B9C34552502DD920059D314 /* DropBeers.app */,
 				7B9C346B2502DD930059D314 /* DropBeersTests.xctest */,
-				7B9C34762502DD930059D314 /* DropBeersUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -252,15 +232,6 @@
 				7B3E59CE250A80CE00796CDA /* BeerListTests.swift */,
 			);
 			path = DropBeersTests;
-			sourceTree = "<group>";
-		};
-		7B9C34792502DD930059D314 /* DropBeersUITests */ = {
-			isa = PBXGroup;
-			children = (
-				7B9C347A2502DD930059D314 /* DropBeersUITests.swift */,
-				7B9C347C2502DD930059D314 /* Info.plist */,
-			);
-			path = DropBeersUITests;
 			sourceTree = "<group>";
 		};
 		7BA23FD92504033900D72A41 /* Networking */ = {
@@ -419,24 +390,6 @@
 			productReference = 7B9C346B2502DD930059D314 /* DropBeersTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		7B9C34752502DD930059D314 /* DropBeersUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7B9C34852502DD930059D314 /* Build configuration list for PBXNativeTarget "DropBeersUITests" */;
-			buildPhases = (
-				7B9C34722502DD930059D314 /* Sources */,
-				7B9C34732502DD930059D314 /* Frameworks */,
-				7B9C34742502DD930059D314 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7B9C34782502DD930059D314 /* PBXTargetDependency */,
-			);
-			name = DropBeersUITests;
-			productName = DropBeersUITests;
-			productReference = 7B9C34762502DD930059D314 /* DropBeersUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -450,10 +403,6 @@
 						CreatedOnToolsVersion = 11.7;
 					};
 					7B9C346A2502DD930059D314 = {
-						CreatedOnToolsVersion = 11.7;
-						TestTargetID = 7B9C34542502DD920059D314;
-					};
-					7B9C34752502DD930059D314 = {
 						CreatedOnToolsVersion = 11.7;
 						TestTargetID = 7B9C34542502DD920059D314;
 					};
@@ -474,7 +423,6 @@
 			targets = (
 				7B9C34542502DD920059D314 /* DropBeers */,
 				7B9C346A2502DD930059D314 /* DropBeersTests */,
-				7B9C34752502DD930059D314 /* DropBeersUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -500,13 +448,6 @@
 				7B3E59CD250A7D7A00796CDA /* NoSolution.txt in Resources */,
 				7B3E59C8250A784C00796CDA /* 2BeersInput.txt in Resources */,
 				7B3E59CB250A7CE500796CDA /* 5BeersInput.txt in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7B9C34742502DD930059D314 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,14 +499,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7B9C34722502DD930059D314 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7B9C347B2502DD930059D314 /* DropBeersUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -573,11 +506,6 @@
 			isa = PBXTargetDependency;
 			target = 7B9C34542502DD920059D314 /* DropBeers */;
 			targetProxy = 7B9C346C2502DD930059D314 /* PBXContainerItemProxy */;
-		};
-		7B9C34782502DD930059D314 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7B9C34542502DD920059D314 /* DropBeers */;
-			targetProxy = 7B9C34772502DD930059D314 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -757,7 +685,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YDABZ672Z5;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DropBeersTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -779,7 +707,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YDABZ672Z5;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DropBeersTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -792,46 +720,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DropBeers.app/DropBeers";
-			};
-			name = Release;
-		};
-		7B9C34862502DD930059D314 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YDABZ672Z5;
-				INFOPLIST_FILE = DropBeersUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DropBeersUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = DropBeers;
-			};
-			name = Debug;
-		};
-		7B9C34872502DD930059D314 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YDABZ672Z5;
-				INFOPLIST_FILE = DropBeersUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DropBeersUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = DropBeers;
 			};
 			name = Release;
 		};
@@ -861,15 +749,6 @@
 			buildConfigurations = (
 				7B9C34832502DD930059D314 /* Debug */,
 				7B9C34842502DD930059D314 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7B9C34852502DD930059D314 /* Build configuration list for PBXNativeTarget "DropBeersUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7B9C34862502DD930059D314 /* Debug */,
-				7B9C34872502DD930059D314 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
